@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
-        System.out.println("Hello, Zia " + x);
+        System.out.println("Hello, World " + x);
         sc.close();
     }
 }
