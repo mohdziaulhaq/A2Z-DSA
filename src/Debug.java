@@ -2,10 +2,11 @@ package src;
 
 public class Debug {
     public static void main(String[] args) {
-        int n = 121;
+        int n = 153;
         // patternOne(n);
         // System.out.println(reverse(n));
-        System.out.println(isPalindrome(n));
+        // System.out.println(isPalindrome(n));
+        System.out.println(isArmstrongNumber(n));
 
     }
 
@@ -41,5 +42,23 @@ public class Debug {
             return true;
         else
             return false;
+    }
+
+    static boolean isArmstrongNumber(int n) {
+        int originalNumber = n;
+        int numberOfDigits = 0;
+        int armstrongNumber = 0;
+        while (originalNumber > 0) {
+            numberOfDigits++;
+            originalNumber /= 10;
+        }
+        originalNumber = n;
+        for (int i = 0; i < numberOfDigits; i++) {
+            int remainder = originalNumber % 10;
+            int oneDigit = (int) Math.pow(remainder, numberOfDigits);
+            armstrongNumber = armstrongNumber + oneDigit;
+            originalNumber /= 10;
+        }
+        return armstrongNumber == n;
     }
 }

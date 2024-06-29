@@ -15,7 +15,12 @@ public class BasicMaths {
         // need to handle negative values as well
         // System.out.println(reverse(n));
 
-        System.out.println(isPalindrome(n));
+        // 9. Palindrome Number - https://leetcode.com/problems/palindrome-number/
+        // System.out.println(isPalindrome(n));
+
+        // Armstrong number -
+        // https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
+        System.out.println(isArmstrongNumber(n));
         sc.close();
     }
 
@@ -73,5 +78,22 @@ public class BasicMaths {
             return true;
         else
             return false;
+    }
+
+    static boolean isArmstrongNumber(int n) {
+        int originalNumber = n;
+        int numberOfDigits = 0;
+        double armstrongNumber = 0;
+        while (originalNumber > 0) {
+            numberOfDigits++;
+            originalNumber /= 10;
+        }
+        for (int i = 0; i < numberOfDigits; i++) {
+            int remainder = originalNumber % 10;
+            double oneDigit = Math.pow(remainder, numberOfDigits);
+            armstrongNumber = (int) armstrongNumber * 10 + oneDigit;
+            originalNumber /= 10;
+        }
+        return armstrongNumber == n;
     }
 }
