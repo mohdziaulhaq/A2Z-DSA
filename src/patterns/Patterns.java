@@ -13,7 +13,12 @@ public class Patterns {
         // patternFour(n);
         // patternFive(n);
         // patternSix(n);
-        patternSeven(n);
+        // patternSeven(n);
+        // patternSevenWithOneBasedIndex(n);
+        // patternEight(n);
+        // patternNine(n);
+        // patternTen(n);
+        patternTenWithZeroBasedIndex(n);
         sc.close();
 
     }
@@ -88,6 +93,71 @@ public class Patterns {
                 System.out.print(" ");
             }
             System.out.println("");
+        }
+    }
+
+    static void patternSevenWithOneBasedIndex(int n) {
+        for (int i = 1; i <= n; i++) {
+            // spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            // spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+    }
+
+    static void patternEight(int n) {
+        for (int i = 0; i < n; i++) {
+            // spaces
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+            // stars
+            for (int j = 0; j < (2 * n) - (2 * i + 1); j++) {
+                System.out.print("*");
+            }
+            // spaces
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+    }
+
+    static void patternNine(int n) {
+        patternSeven(n);
+        patternEight(n);
+    }
+
+    static void patternTen(int n) {
+        for (int i = 1; i <= (2 * n) - 1; i++) {
+            int stars = i;
+            if (i > n)
+                stars = 2 * n - i;
+            for (int j = 1; j <= stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    static void patternTenWithZeroBasedIndex(int n) {
+        for (int i = 0; i < (2 * n) - 1; i++) {
+            int stars = i;
+            if (i > n)
+                stars = 2 * n - i;
+            for (int j = 0; j <= stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
     }
 }
