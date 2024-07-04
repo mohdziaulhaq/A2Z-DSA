@@ -34,8 +34,12 @@ public class BasicMaths {
         // System.out.println(checkprime(n));
 
         // System.out.println(checkprime(n));
-        printAllPrimeNumber(n).stream().forEach(item -> System.out.print(item + " "));
+        // printAllPrimeNumber(n).stream().forEach(item -> System.out.print(item + "
+        // "));
         // System.out.println(printAllPrimeNumber(n));
+
+        // https://www.naukri.com/code360/problems/gcd_6557?leftPanelTabValue=PROBLEM
+        System.out.println(gcd(96, 14));
         sc.close();
     }
 
@@ -170,5 +174,17 @@ public class BasicMaths {
                 primeNumbers.add(i);
         }
         return primeNumbers;
+    }
+
+    static int gcd(int a, int b) {
+        while (a > 0 && b > 0) {
+            if (a > b)
+                a = a % b;
+            else
+                b = b % a;
+        }
+        if (a == 0)
+            return b;
+        return a;
     }
 }
