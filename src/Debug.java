@@ -6,7 +6,8 @@ import java.util.List;
 
 public class Debug {
     public static void main(String[] args) {
-        int n = 100;
+        int n = 5;
+
         // patternOne(n);
         // System.out.println(reverse(n));
         // System.out.println(isPalindrome(n));
@@ -16,13 +17,22 @@ public class Debug {
         // System.out.println(sumOfDivisorsOptimized(n));
 
         // Input: arr[] = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9}, n = 11
-        int arr[] = { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 };
-        int m = 11;
+        // int arr[] = { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 };
+        // int m = 11;
         // Output: 3
         // System.out.println(minJumps(arr, m));
-        List<Integer> result = printAllPrimeNumber(n);
+        // List<Integer> result = printAllPrimeNumber(n);
 
-        System.out.println(result);
+        // System.out.println(result);
+
+        // System.out.println(sumOfSeries(n));
+
+        int arr[] = { 5, 4, 3, 2, 1 };
+        reverseArrayUsingRecursion(arr, 0, n);
+
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i] + " ");
+        }
 
     }
 
@@ -164,5 +174,35 @@ public class Debug {
                 primeNumbers.add(i);
         }
         return primeNumbers;
+    }
+
+    static long sumOfSeries(long n) {
+        // code here
+        long result = 0;
+        if (n == 0)
+            return 0;
+        result = (long) Math.pow(n, 3);
+        return result + sumOfSeries(n - 1);
+    }
+
+    // Two pointer Approach
+    static void reverseArrayUsingRecursion(int arr[], int start, int end) {
+        if (start >= end)
+            return;
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        reverseArrayUsingRecursion(arr, start + 1, end - 1);
+    }
+
+    // single pointer
+    static void reverseArray(int arr[], int z) {
+        int n = arr.length;
+        if (z >= n / 2)
+            return;
+        int temp = arr[z];
+        arr[z] = arr[n - z - 1];
+        arr[n - z - 1] = temp;
+        reverseArray(arr, z + 1);
     }
 }
