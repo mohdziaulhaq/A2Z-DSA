@@ -6,16 +6,17 @@ import java.util.Scanner;
 public class Recursion {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int arr[] = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
+        // int n = sc.nextInt();
+        String s = sc.nextLine();
+        // int arr[] = new int[n];
+        // for (int i = 0; i < n; i++) {
+        // arr[i] = sc.nextInt();
+        // }
         // reverseArrayUsingRecursionTWOPOINTER(arr, 0, n - 1);
-        reverseArray(arr, 0);
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        // reverseArray(arr, 0);
+        // for (int i = 0; i < n; i++) {
+        // System.out.print(arr[i] + " ");
+        // }
 
         // System.out.println(new Solution().sumOfSeries(n));
         // printNto1UsingBacktracking(1, n);
@@ -24,6 +25,9 @@ public class Recursion {
         // https://practice.geeksforgeeks.org/problems/find-all-factorial-numbers-less-than-or-equal-to-n3548/0?problemType=functional&difficulty%5B%5D=-1&page=1&query=problemTypefunctionaldifficulty%5B%5D-1page1
         // ArrayList<Long> result = findAllFactorialNumbersLessThanN(n);
         // result.forEach(e -> System.out.print(e + " "));
+
+        // check palindrome
+        System.out.println(checkPalindrome(s, 0));
         sc.close();
     }
 
@@ -76,6 +80,15 @@ public class Recursion {
         arr[z] = arr[n - z - 1];
         arr[n - z - 1] = temp;
         reverseArray(arr, z + 1);
+    }
+
+    static boolean checkPalindrome(String s, int z) {
+        int n = s.length();
+        if (z >= n / 2)
+            return true;
+        if (s.toCharArray()[z] != s.toCharArray()[n - z - 1])
+            return false;
+        return checkPalindrome(s, z + 1);
     }
 }
 

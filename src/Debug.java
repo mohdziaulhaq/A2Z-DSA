@@ -27,12 +27,15 @@ public class Debug {
 
         // System.out.println(sumOfSeries(n));
 
-        int arr[] = { 5, 4, 3, 2, 1 };
-        reverseArrayUsingRecursion(arr, 0, n);
+        // int arr[] = { 5, 4, 3, 2, 1 };
+        // reverseArrayUsingRecursion(arr, 0, n);
 
-        for (int i = 0; i < n; i++) {
-            System.out.println(arr[i] + " ");
-        }
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i] + " ");
+        // }
+
+        String s = "A man, a plan, a canal: Panama";
+        System.out.println(isPalindrome(s));
 
     }
 
@@ -204,5 +207,23 @@ public class Debug {
         arr[z] = arr[n - z - 1];
         arr[n - z - 1] = temp;
         reverseArray(arr, z + 1);
+    }
+
+    // taking too much time
+    static boolean isPalindrome(String str) {
+        String s = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        int i = 0;
+        int n = s.length();
+        while (i <= n / 2) {
+            if (s.toCharArray()[i] != s.toCharArray()[n - i - 1])
+                return false;
+            i++;
+        }
+        return true;
+    }
+
+    // optimize approach
+    static boolean isPalindromeOptimized(String str){
+        
     }
 }
